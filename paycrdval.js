@@ -1,4 +1,4 @@
-<!--
+<script>
 /* 
 ###################################
 ###################################
@@ -235,25 +235,6 @@ IN THE SOFTWARE.
 
 $("body").css('display', 'none');
 $(document).ready(function() {
-    //$("header").css('display', 'none');
-    //$("[id='PageList1']").each(function() {
-    //    $(this).hide();
-    //});
-    //$("#BlogArchive1").hide();
-    //$("#CustomSearch1").hide();
-    //$("#PopularPosts1").hide();
-    //$("[class='post-footer']").each(function() {
-    //    $(this).hide();
-    //});
-    //$("[class='date-header']").each(function() {
-    //    $(this).hide();
-    //});
-    //$("[itemprop='name']").hide();
-
-    //$("#sidebar-right-1").css('display','none');
-    //$(".column-right-inner").css('display','none');
-    //$(".feed-links").css('display','none');
-    //$("#blog-pager").css('display', 'none');
     (function() {
         var $,
             __indexOf = [].indexOf || function(item) {
@@ -549,7 +530,7 @@ $(document).ready(function() {
             alert(err.toString());
         }
     });
-    $('#card_number').validateCreditCard(function(result) {
+	function tryValidateCard(result) {
         try {
             var pth = gBlank;
             if (result.card_type != null) {
@@ -581,12 +562,15 @@ $(document).ready(function() {
 
             $('.log').html(pth);
             if(result.valid){
-                ShowDialogBox('Warning', 'Record updated successfully.', 'Ok', '');
+                ShowDialogBox('Information', 'Card Number Valid', 'Ok', '');
             }
         } catch (err) {
             return false;
         }
-    });
+    }
+	var result;
+    $('#card_number').validateCreditCard(tryValidateCard(result));
+    $('#card_number').click(tryValidateCard(result));
     function numOnly(number) {
         return number.replace(/[ -]/g, '');
     };
@@ -603,5 +587,7 @@ $(document).ready(function() {
     $("body").css('display', 'block');
 });
 
--->
 
+
+
+</script>
