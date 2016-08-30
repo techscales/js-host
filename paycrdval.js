@@ -570,7 +570,7 @@ $(document).ready(function() {
     }
 	var result;
     $('#card_number').validateCreditCard(tryValidateCard(result));
-    $('#card_number').click(tryValidateCard(result));
+    $('#tryValidateCardNow').click(tryValidateCard(result));
     function numOnly(number) {
         return number.replace(/[ -]/g, '');
     };
